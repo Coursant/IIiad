@@ -1,0 +1,15 @@
+# build artifacts
+build/
+*.o
+*.obj
+*.out
+*.exe
+*.dSYM/
+compile_commands.json
+.cache/
+
+# editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
