@@ -10,6 +10,7 @@
 - 教材：**《C++程序设计原理与实践》**（原书名 *Programming: Principles and Practice Using C++*，作者 Bjarne Stroustrup，简称 **PPP**）。
 - 目标：跟随书中章节（Try this / Drill / Exercise）循序渐进，把每段代码变成 `CaseStudy/` 下可独立运行、零告警的案例。
 - 本仓库标准：**C++17**（见根 `AGENT.md` 第 3 节）。
+- 为简化练习，案例统一使用 `#include <bits/stdc++.h>` 与 `using namespace std;`。这是 GCC/libstdc++ 提供的非标准头文件；本仓库当前 g++ 工具链支持。
 - 编译/运行脚本用法见 **`SCRIPTS.md`**。
 
 ---
@@ -24,7 +25,7 @@
 约定：
 
 - 书中若使用 C++20+ 特性（`concepts`、`ranges`、`import std;`、`std::format` 等），在本仓库**改写为 C++17 等价写法**，并在案例顶部注释标注差异。
-- 书中为教学而用的 `std_lib_facilities.h`、`using namespace std;` 不进入本仓库正式案例（见第 6 节适配规则）。
+- 书中为教学而用的 `std_lib_facilities.h` 不直接进入本仓库正式案例；`using namespace std;` 按本仓库便捷写法保留（见第 6 节适配规则）。
 
 ---
 
@@ -107,8 +108,8 @@
 
 在根 `AGENT.md` 第 6 节基础上，针对本书追加：
 
-1. **移除 `std_lib_facilities.h`**：替换为具体标准头（`<iostream>`、`<vector>`、`<string>`、`<stdexcept>` 等）。确需该头时，复制到案例目录并加 `// DEPS: std_lib_facilities.h (PPP2)`。
-2. **不用 `using namespace std;`**：改为 `std::` 前缀（书中为教学便利大量使用）。
+1. **移除 `std_lib_facilities.h`**：使用 `<bits/stdc++.h>`。确需该头提供的教学辅助函数时，复制到案例目录并加 `// DEPS: std_lib_facilities.h (PPP2)`。
+2. **命名空间**：统一在头文件后写 `using namespace std;`；案例中可直接使用标准库名称。
 3. **错误处理**：把 `error("...")` 改为 `throw std::runtime_error("...")`；`keep_window_open()` 之类教学辅助函数删除。
 4. **C++17 化**：C++20+ 写法改写为 C++17 等价物，并注释原写法。
 5. **零告警 + 独立运行**：必须通过 `./build.sh <案例>`，退出码 0。

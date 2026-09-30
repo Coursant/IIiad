@@ -17,7 +17,7 @@ IIiad 是个人学习与研究知识库，按 **领域 → 语言/主题 → 案
 - **自包含**：每个案例不依赖其它案例，能单独编译运行。
 - **可验证**：任何案例都能用一条命令跑通，退出码为 0。
 - **零告警**：编译必须通过 `-Wall -Wextra -Wpedantic -Wshadow`。
-- **纯标准库优先**：能不引第三方依赖就不引。
+- **练习便捷优先**：C++ 案例统一使用 GCC 的 `<bits/stdc++.h>`；仍尽量不引第三方依赖。
 
 ---
 
@@ -30,6 +30,11 @@ IIiad/
 ├── .gitignore                     # 忽略 build/ 与编辑器产物
 └── Areas/                         # 顶层：按大领域划分
     ├── Language/                  # 语言学习区
+    │   ├── AGENT.md               # 跨语言共同笔记约定
+    │   ├── Common/                # 跨语言概念与比较笔记
+    │   │   ├── Iterators.md       # C++ / Python / Rust 迭代器
+    │   │   ├── ReturnValueLifetime.md # 函数返回值生命周期与所有权
+    │   │   └── VariableStorageLifetime.md # 变量完整生命周期、ref/ptr 与赋值语义
     │   ├── C++/                   # C++ 学习轨道（当前主线）
     │   │   ├── AGENT.md           # 本轨道专属说明（PPP 教材与参考仓库）
     │   │   ├── SCRIPTS.md         # build.sh / new_case.sh 用法说明
@@ -46,6 +51,11 @@ IIiad/
     │   ├── PL/                    # 编程语言理论（占位）
     │   ├── Python/                # 占位
     │   └── Rust/                  # 占位
+    ├── Linux/                     # Linux 系统学习区
+    │   ├── AGENT.md               # Linux 学习轨道约定
+    │   └── MemoryManagement/      # 内存管理：路线、资料、实验
+    │       ├── README.md
+    │       └── CaseStudy/
     └── Quant/                     # 量化研究（占位）
 ```
 
@@ -61,11 +71,11 @@ IIiad/
 
 | 项目 | 规定 |
 |------|------|
-| 标准 | **C++17**（`-std=c++17`），禁用 GNU 扩展 |
+| 标准 | **C++17**（`-std=c++17`），不使用 GNU 语言扩展；便捷头文件约定见下 |
 | 编译器 | 默认 `g++` 11.4；`clang++` 14 用于交叉验证 |
 | 告警 | `-Wall -Wextra -Wpedantic -Wshadow`，要求零告警 |
 | 优化/调试 | `-O2 -g` |
-| 头文件 | 只用标准头；**禁止 `#include <bits/stdc++.h>`** |
+| 头文件 | 练习案例统一 `#include <bits/stdc++.h>` 与 `using namespace std;`；依赖 GCC/libstdc++，并非 ISO C++ 标准写法 |
 | 语言特性 | 不引入 C++20/23 特性（除非案例显式标注并单独说明） |
 
 C++17 已覆盖的常用特性见 `CaseStudy/` 现有案例（结构化绑定、`if/switch` 初始化、`optional`、`variant`、`string_view`、`if constexpr`、折叠表达式、`filesystem`、lambda init-capture、`template <auto>`）。
@@ -141,7 +151,7 @@ $EDITOR CaseStudy/11_my_topic/main.cpp
 
 1. 放进独立的 `CaseStudy/<NN_topic>/` 目录。
 2. 补齐 `int main()` 与所需标准 `#include`。
-3. 删除 `bits/stdc++.h`，替换为具体标准头。
+3. 将普通标准库头文件整理为一行 `#include <bits/stdc++.h>`，并加 `using namespace std;`；特殊第三方依赖另行注明。
 4. 修正到 C++17 语义，消除全部编译告警。
 5. 必须通过 `./build.sh <案例>` 且退出码为 0。
 6. 需要第三方库时，在案例目录放 `README.md` 说明依赖，或在顶部加 `// DEPS: <库>`；优先改写为纯标准库。
@@ -190,5 +200,5 @@ sudo apt update && sudo apt install -y build-essential clang cmake gdb
 - 改动任何 C++ 代码后，必须运行 `./build.sh --all`（必要时加 `--cxx=clang++`）确认零告警。
 - 新增案例必须自包含、可独立运行、零告警。
 - 保持 C++17；不要擅自升级标准或引入 C++20 特性。
-- 不要使用 `bits/stdc++.h`。
+- C++ 案例按本轨道约定使用 `<bits/stdc++.h>` 与 `using namespace std;`。
 - 遵循既有命名与目录结构；`PL/`、`Python/`、`Rust/`、`Quant/` 目前为占位，未经确认不要填充。

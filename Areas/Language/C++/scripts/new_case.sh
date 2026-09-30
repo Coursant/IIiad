@@ -38,13 +38,13 @@ cat > "$dir/main.cpp" <<EOF
 // Topic: <describe the C++17 feature(s) demonstrated>
 // RUN:   ./build.sh $name
 // CHECK: ./build.sh --check $name
-#include <iostream>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main() {
-    std::cout << "$name\\n";
+    cout << "$name\\n";
     return 0;
 }
 EOF
 
 echo "created $dir/main.cpp"
- 
