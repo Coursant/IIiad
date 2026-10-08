@@ -40,6 +40,9 @@ IIiad/
     │   │   ├── SCRIPTS.md         # build.sh / new_case.sh 用法说明
     │   │   ├── build.sh           # 单案例：编译 + 运行（核心工具）
     │   │   ├── CMakeLists.txt     # 批量构建全部案例
+    │   │   ├── WonderTraderLab/   # 独立 C++17 项目：源码教学、学习跟踪与核心功能复刻
+    │   │   │   ├── AGENTS.md      # 项目教学与协作规则（AGENT.md 为兼容入口）
+    │   │   │   └── README.md      # 独立构建入口、路线与进度索引
     │   │   ├── scripts/
     │   │   │   └── new_case.sh    # 脚手架：新建案例
     │   │   ├── CaseStudy/         # 每个子目录 = 一个独立案例
@@ -56,6 +59,24 @@ IIiad/
     │   └── MemoryManagement/      # 内存管理：路线、资料、实验
     │       ├── README.md
     │       └── CaseStudy/
+    ├── AIInfra/                   # AI Infra 面试准备与长期学习记录
+    │   ├── AGENTS.md              # 教学、验收、实验与学习记录规则
+    │   ├── AGENT.md               # 兼容入口
+    │   ├── README.md              # 导航与开始方式
+    │   ├── CHECKLIST.md           # 带优先级和验收条件的完整清单
+    │   ├── ROADMAP.md             # 12 周目标与冲刺分支
+    │   ├── 01_Foundations/        # 基础学习与验收
+    │   ├── 02_CUDAAndOperators/   # CUDA 与算子
+    │   ├── 03_DistributedTraining/ # 分布式训练
+    │   ├── 04_InferenceOptimization/ # 推理优化
+    │   ├── 05_Profiling/          # 性能分析补充
+    │   ├── 06_Systems/            # 系统工程补充
+    │   ├── Interview/             # 测评、题库、模拟、岗位和简历证据
+    │   ├── Projects/              # 实践项目任务书与后续实现
+    │   ├── Learning/              # 目标、进度、日志、错题和复习
+    │   ├── Resources/             # 官方参考与来源映射
+    │   │   └── Zhihu/             # 原文 22 类资料链接，含 PP/SP/CP 子分类
+    │   └── Templates/             # 笔记、实验、课次和复盘模板
     └── Quant/                     # 量化研究（占位）
 ```
 

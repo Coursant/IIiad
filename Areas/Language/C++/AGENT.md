@@ -3,6 +3,10 @@
 > 本文件是 `Areas/Language/C++/` 的专属说明，补充根目录 `AGENT.md`。
 > 总原则：本轨道的练习与学习以 **Bjarne Stroustrup《C++程序设计原理与实践》** 为主线教材。
 
+## WonderTrader 项目实践
+
+用户指定的独立项目 [WonderTraderLab](WonderTraderLab/README.md) 与 `CaseStudy/` 并列，以 WonderTrader 的 C++ 源码为实践参考。进入该目录前阅读 [项目规则](WonderTraderLab/AGENTS.md)：按用户指定语法查找真实片段、指导亲手编写、持续记录学习进度，逐步形成统一的核心功能复刻。该项目用自己的 CMake 构建；本轨道 `build.sh` 不覆盖它。
+
 ---
 
 ## 1. 学习主线
